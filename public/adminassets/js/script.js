@@ -221,15 +221,13 @@ Version      : 1.0
 		return false;
 	});
 
+	$(document).ready(function(){
+		$(".bodytext").click(function(){
+		  $(".bodytext").removeClass("mini-sidebar");
+		});
+	  });
 
-	// $(document).ready(function(){
-	// 	$("#toggle_btn").click(function(){
-	// 	   $(".bodytext").toggleClass("mini-sidebar");
-	// 	});
-	// });
 
-
-	//dropdown toggle
 
 	$(document).on('mouseover', function(e) {
 		e.stopPropagation();
