@@ -1816,6 +1816,10 @@ html.menu-opened body {
 	-o-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
+/* adding rotate class */
+.rotate{
+	transform: rotate(90deg);
+  }
 .sidebar-menu ul ul a .menu-arrow {
 	top: 10px;
 }

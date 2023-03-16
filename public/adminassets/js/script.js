@@ -34,10 +34,47 @@ Version      : 1.0
 				$(this).removeClass('subdrop');
 				$(this).next('ul').slideUp(350);
 			}
+			$('.sub-btn').click(function(){
+				$(this).next('.sub-menu').slideToggle();
+				$(this).find('.dropdown').toggleClass('rotate');
+			})
 		});
 		$('#sidebar-menu ul li.submenu a.active').parents('li:last').children('a:first').addClass('active').trigger('click');
-	}
+		$(document).ready(function(){
+			$('.sidebar-menu ul li').click(function(){
+			$(this).next('.subdrop').slideToggle();
+			});
+		});
 	
+	}
+
+	//submenu-------------
+
+	// $(document).on('click', '.sidebar-menu ul li', function(){
+		
+	// 	$(this).addClass("subdrop");
+	// 	$(" .subdrop ul").show(); 
+	// 	$(this).removeClass("subdrop");
+	// 	// $(".Sidemenu").next('ul').slideUp(350);
+	// });
+	
+	
+	//dropdown menu code below
+
+	$(document).ready(function(){
+		//jquery for toddle the sub menus
+		$('.sub-btn').click(function(){
+			$(this).next('.sub-menu').slideToggle();
+			$(this).find('.dropdown').toggleClass('rotate');
+		})
+	})
+
+	
+	
+	//end
+
+
+
 	// Sidebar Initiate
 	init();
 	
@@ -75,6 +112,13 @@ Version      : 1.0
 		}
 	});
 	
+ 
+	// $(document).on('click', '.sidebar-menu ul li', function(){
+	// 	$(".sidebar-menu li").removeClass("active");
+	// 	$(this).addClass("active");
+	// 	$(".sidebar-menu .active ul").show(); 
+	// });
+
 	// Select 2
 	
     if ($('.select').length > 0) {
@@ -203,15 +247,28 @@ Version      : 1.0
 			$('.sidebar .slimScrollDiv').height(rHeight);
 		});
 	}
+
+	// button
 	
+        $(function () {
+            $('#datetimepicker11').datetimepicker({
+               daysOfWeekDisabled: []
+            });
+        });
+
+		// Data Picker Initialization
+// $('.datepicker').datepicker({
+// 	inline: true
+//   });
+   
 	// Small Sidebar
 
 	$(document).on('click', '#toggle_btn', function() {
-		if($('body').hasClass('mini-sidebar')) {
-			$('body').removeClass('mini-sidebar');
+		if($('.bodytext').hasClass('mini-sidebar')) {
+			$('.bodytext').removeClass('mini-sidebar');
 			$('.subdrop + ul').slideDown();
 		} else {
-			$('body').addClass('mini-sidebar');
+			$('.bodytext').addClass('mini-sidebar');
 			$('.subdrop + ul').slideUp();
 		}
 		setTimeout(function(){ 
@@ -222,10 +279,14 @@ Version      : 1.0
 	});
 
 	$(document).ready(function(){
+		
 		$(".bodytext").click(function(){
 		  $(".bodytext").removeClass("mini-sidebar");
+		 
 		});
 	  });
+	  
+	
 
 
 
@@ -246,3 +307,6 @@ Version      : 1.0
 
 	
 })(jQuery);
+
+
+

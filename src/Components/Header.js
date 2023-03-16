@@ -26,13 +26,13 @@ const Header = () => {
                     <span></span>
                 </span>
             </a>
-            <a href="index-2.html" className="navbar-brand logo">
+            <a href="/" className="navbar-brand logo">
                 <img src="/assets/img/logo.png" className="img-fluid" alt="Logo"/>
             </a>
         </div>
         <div className="main-menu-wrapper">
             <div className="menu-header">
-                <a href="index-2.html" className="menu-logo">
+                <a href="/" className="menu-logo">
                     <img src="/assets/img/logo.png" className="img-fluid" alt="Logo"/>
                 </a>
                 <a id="menu_close" className="menu-close" href="javascript:void(0);">
@@ -90,8 +90,8 @@ const Header = () => {
                             </ul>
                         </li>
                         <li><a href="blank-page.html">Starter Page</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/login">Register</a></li>
                         <li><a href="forgot-password.html">Forgot Password</a></li>
                     </ul>
                 </li>
@@ -99,8 +99,21 @@ const Header = () => {
                     {/* <a href="C:\Users\admin\Desktop\onemore\src\Admin\Indexs.js" target="_blank">Admin</a> */}
                     <Link to="/admin/dashboard">Admin</Link> 
                 </li>
+                <li>
+                    {/* <a href="C:\Users\admin\Desktop\onemore\src\Admin\Indexs.js" target="_blank">Admin</a> */}
+                    <Link to="/login/superadmin">Login Superadmin</Link> 
+                </li>
+                <li>
+                    {/* <a href="C:\Users\admin\Desktop\onemore\src\Admin\Indexs.js" target="_blank">Admin</a> */}
+                    <Link to="/login/doctor">Login Doctor</Link> 
+                </li>
+                <li>
+                    {/* <a href="C:\Users\admin\Desktop\onemore\src\Admin\Indexs.js" target="_blank">Admin</a> */}
+                    <Link to="/login/clinic">Login Clinic</Link> 
+                </li>
                 <li className="login-link">
-                    <a href="login.html">Login / Signup</a>
+                    {/* <a href="/login">Login / Signup</a> */}
+                    <Link to="/login">Login / Signup</Link>
                 </li>
           </ul>
         </div>
@@ -114,9 +127,9 @@ const Header = () => {
                     <p className="contact-info-header"> +1 315 369 5943</p>
                 </div>
             </li>
-            <li className="nav-item">
-                <a className="nav-link header-login" href="login.html">login / Signup </a>
-            </li>
+            {/* <li className="nav-item">
+                <Link className="nav-link header-login" to="/login">login / Signup </Link>
+            </li> */}
         </ul>
     </nav>
 </header>

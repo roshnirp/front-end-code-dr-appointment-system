@@ -70,3 +70,28 @@
 .scroll{
   overflow-y: scroll;
 }
+.rotate{
+  transform: rotate(90deg);
+}
+.btn{
+  float: right;
+}
+.App {
+	text-align: center;
+}
+.datepicker{
+  padding: 10px;
+}
+.btnmargin{
+  margin: 10px;
+  border-radius: 25px;
+  background-color: rgb(145, 179, 227);
+  
+}
+.btnmargin:hover{
+  background-color: rgb(59, 59, 157);
+}
+.datepikers{
+  margin: 10px;
+  border-radius: 8px;
+}
