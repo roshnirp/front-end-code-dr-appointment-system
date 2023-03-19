@@ -95,6 +95,22 @@ function App() {
           </React.Fragment>
         }>
         </Route>
+        <Route exact path='/admin/appointment' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <Salidbar />
+            <Appoitmentpage />
+            <Appoitmentbutton/>
+          </React.Fragment>
+        }></Route>
+            <Route exact path='/admin/settings' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <Salidbar />
+            <Sittingpage />
+          </React.Fragment>
+        }></Route>
+
 
         <Route exact path='/register' element={
           <React.Fragment>
@@ -110,6 +126,24 @@ function App() {
             <HeaderAdmin />
             <Salidbar />
             <Dashboard />
+          </React.Fragment>
+        }>
+
+        </Route>
+           <Route exact path='/admin/profile' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <Salidbar/>
+            <Profilepage />
+          </React.Fragment>
+        }>
+          
+        </Route>
+        <Route exact path='/admin/transactions' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <Salidbar />
+            <Transaction />
           </React.Fragment>
         }></Route>
 
@@ -240,23 +274,7 @@ function App() {
         }>
           
         </Route>
-
-        
-     
-
-
-
-
-        <Route exact path='/admin/appointment' element={
-          <React.Fragment>
-            <HeaderAdmin />
-            <Salidbar />
-            <Appoitmentpage />
-            <Appoitmentbutton/>
-          </React.Fragment>
-        }></Route>
-
-        <Route exact path='/admin/Specialities' element={
+<Route exact path='/admin/Specialities' element={
           <React.Fragment>
             <HeaderAdmin />
             <Salidbar />
@@ -324,13 +342,7 @@ function App() {
 
         </Route>
 
-        <Route exact path='/admin/transactions' element={
-          <React.Fragment>
-            <HeaderAdmin />
-            <Salidbar />
-            <Transaction />
-          </React.Fragment>
-        }></Route>
+       
 
 
         <Route exact path='/admin/settings' element={
@@ -487,20 +499,7 @@ function App() {
           </React.Fragment>
         }></Route>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </Routes>
+</Routes>
     </div>
   );
 }

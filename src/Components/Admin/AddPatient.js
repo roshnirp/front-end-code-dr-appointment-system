@@ -70,16 +70,8 @@ const AddPatient = () => {
                                                     <Input type='text' placeholder='age' />
                                                 </Form.Item>
                                             </Col>
-                                            <Col xs={24} md={24} lg={8}>
-                                                <Form.Item
-                                                    label="Gender"
-                                                    name="gender"
-                                                    required
-                                                    rules={[{ required: true }]}>
-                                                    <Input type='text' placeholder='gender' />
-                                                </Form.Item>
-
-                                            </Col>
+                                            
+                                            
                                             <Col xs={24} md={24} lg={8}>
                                                 <Form.Item
                                                     label="Time"
@@ -100,7 +92,24 @@ const AddPatient = () => {
                                                     <Input type='date' placeholder='mobile number' />
                                                 </Form.Item>
                                             </Col>
-                                           
+                                            <Col xs={24} md={24} lg={8}>
+                                                <Form.Item
+                                                    label="Reasion"
+                                                    name="reasion"
+                                                    required
+                                                    rules={[{ required: true }]}>
+                                                    <Input type='text' placeholder='reasion' />
+                                                </Form.Item>
+                                            </Col>
+                                            <Col xs={24} md={24} lg={8}>
+                                                <Form.Item
+                                                    label="Mboile No."
+                                                    name="mobile_No"
+                                                    required
+                                                    rules={[{ required: true }]}>
+                                                    <Input type='text' placeholder='mobile number' />
+                                                </Form.Item>
+                                            </Col>
                                         
 
                                         <Col>
