@@ -1,22 +1,17 @@
-import React from 'react'
-import { Link,useNavigate  } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react'
 import axios from 'axios';
-import { useState } from 'react'
+import { useState } from 'react';
 
-import Swal from 'sweetalert2';
-
-
-
-const Appoitmentpage = () => {
-    const navigate = useNavigate();
+const API = "/api/v1/user/user-appointments";
+const AppoitmentListforClinic = () => {
     const [myData, setMyData] = useState([]);
     const [isError, setIsError] = useState("");
-
-    const getApiData = async () => {
+    const getApiData = async (url) => {
 
         try {
-            const res = await axios.get("/api/v1/user/user-appointments");
+            const res = await axios.get(url);
             setMyData(res.data.data.reverse());
 
         }
@@ -27,60 +22,13 @@ const Appoitmentpage = () => {
     };
 
     useEffect(() => {
-        getApiData();
+        getApiData(`${API}`);
 
     }, []);
 
-    const deleteOperation = async (_id) =>
-	
-	
-	{ 
-		Swal.fire({
-			title: 'Are you sure?',
-			text: "Delete item into the list!",
-			icon: 'warning',
-			showCancelButton: true,
-			confirmButtonColor: '#3085d6',
-			cancelButtonColor: '#d33',
-			confirmButtonText: 'Yes, delete it!'
-			
-		  }).then((result) => {
-			if (result.isConfirmed) {
-				getApiData()
-			  Swal.fire(
-				'Deleted!',
-				'Item has been deleted.',
-				'success'
-			  )
-			}
-			
-
-		  }
-		  )
-		
-     try {
-				const res = await axios.delete(`/api/v1/user/admin/appointment/` + _id);
-				// setMyData(res.data.data);
-				
-				navigate("/admin/appointment");
-				
-				console.log(res);
-		
-			}
-			
-		catch (error) {
-			setIsError(error.message);
-		}
-		
-	
-	
-		
-	}
-
-
-    return (
-        <div>
-            {isError !== "" && <h2>{isError}</h2>}
+  return (
+    <div>
+       {isError !== "" && <h2>{isError}</h2>}
             <div class="page-wrapper">
                 <div class="content container-fluid">
 
@@ -118,12 +66,11 @@ const Appoitmentpage = () => {
                                         <table class="datatable table table-hover table-center mb-0">
                                         <thead>
                                                 <tr>
-                                                    <th>PatientName</th>
-                                                    <th>Age</th>
-                                                    <th>Gender</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Action</th>
+                                                    <th>patientName</th>
+                                                    <th>age</th>
+                                                    <th>gender</th>
+                                                    <th>date</th>
+                                                    <th>time</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -131,9 +78,9 @@ const Appoitmentpage = () => {
                                                
                                                     {
                                                         myData.map((post) => {
-                                                            const { _id, patientName, age, gender, date, time } = post;
+                                                            const { id, patientName, age, gender, date, time } = post;
                                                             return (
-                                                                <tr key={_id}>
+                                                                <tr key={id}>
                                                                 
                                                                     
                                                                     <td>{patientName}</td>
@@ -142,14 +89,7 @@ const Appoitmentpage = () => {
                                                                     <td>{date}</td>
                                                                     <td>{time}</td>
                                                                     {/* <td>{data}</td> */}
-                                                                    <td class="text-right">
-																<div class="actions">
-																	<Link to="/admin/appointment" class="btn btn-sm bg-danger-light" >
-																		<i class="fe fe-trash"></i><span onClick={()=>deleteOperation(_id)}> Delete
-																		</span>
-																	</Link>	
-																</div>
-															</td>
+                                                               
                                                                   </tr>
                                                                   );
                                                         })
@@ -171,8 +111,9 @@ const Appoitmentpage = () => {
 
                 </div>
             </div>
-        </div>
-    )
+
+    </div>
+  )
 }
 
-export default Appoitmentpage;
+export default AppoitmentListforClinic

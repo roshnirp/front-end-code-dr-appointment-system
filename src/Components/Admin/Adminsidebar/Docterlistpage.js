@@ -1,7 +1,9 @@
-import React from 'react';
+
 import axios from 'axios';
-import  { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 
@@ -13,7 +15,8 @@ const Docterlistpage = () => {
 
 		try {
 			const res = await axios.get("/api/v1/user/apply-doctor");
-			setMyData(res.data.data);
+		
+			setMyData(res.data.data.reverse());
 			// console.log(res.data.data);
 
 		}
@@ -27,6 +30,45 @@ const Docterlistpage = () => {
 		getApiData();
 
 	}, []);
+
+	
+	const deleteData = async (_id) =>
+	{
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "Delete item into the list!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+			
+		  }).then((result) => {
+			if (result.isConfirmed) {
+				getApiData()
+			  Swal.fire(
+				'Deleted!',
+				'Item has been deleted.',
+				'success'
+			  )
+			}
+			
+
+		  }
+		  )
+		
+		try {
+			const res = await axios.delete(`/api/v1/user/apply-doctor/`+ _id);
+			// setMyData(res.data.data);
+			// navigate("/admin/clinic_list/:_id");
+
+			console.log(res);
+
+		}
+		catch (error) {
+			setIsError(error.message);
+		}
+	}
 
   return (
     <div>
@@ -57,10 +99,7 @@ const Docterlistpage = () => {
 									<div class="table-responsive">
 										<table class="datatable table table-hover table-center mb-0">
 										
-											<tbody>
-										
-											
-											<thead>
+										<thead>
 												<tr>
 													<th>Doctor Name</th>
 													<th>Speciality</th>
@@ -70,14 +109,22 @@ const Docterlistpage = () => {
 													<th>FeesPerCunsaltation</th>
 													<th>Mobile Number</th>
 													<th>Experience</th>
+													<th>Action</th>
 												</tr>
 											</thead>
-											<tr>
+											
+											
+											<tbody>
+										
+											
+											
+											
 													{
 														myData.map((post) => {
-															const {  doctorName,specialization, email, website, address,feesPerCunsaltation,phoneNo,experience } = post;
+															const {  _id,doctorName,specialization, email, website, address,feesPerCunsaltation,phoneNo,experience } = post;
 															return (
-																<div key={email}>
+																<tr  key={email}>
+																
 																	<td>{doctorName}</td>
 																	<td>{specialization}</td>
 																	<td>{email}</td>
@@ -86,13 +133,28 @@ const Docterlistpage = () => {
 																	<td>{feesPerCunsaltation}</td>
 																	<td>{phoneNo}</td>
 																	<td>{experience}</td>
+																	<td class="text-right">
+																<div class="actions">
+																	<button class="btn btn-sm bg-danger-light"  href="#delete_modal">
+																		<i class="fe fe-trash"></i><span onClick={()=>deleteData(_id)}> Delete
+																		</span></button>
 																</div>
+															</td>
+															<td class="text-right">
+																<div class="actions">
+																	<a href={`/admin/doctor_list/edit/${_id}`} class="btn btn-sm bg-primary-light"  >
+																		<i class="fa fa-pencil"></i> Edit
+																	</a>
+																</div>
+															</td>
+
+																</tr>
 																);
 														})
 													}
 
 
-												</tr>
+												
 												{/* <tr>
 													<td>
 														<h2 class="table-avatar">

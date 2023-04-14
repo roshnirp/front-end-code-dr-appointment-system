@@ -29,24 +29,17 @@ const Drslidbar = () => {
                     </li>
                     <li>
                         {/* <a href="appointment-list.html"><i className="fe fe-layout"></i> <span>Appointments</span></a> */}
-                        <Link to="/admin/appointment"><i className="fe fe-layout"></i><span>Appointments List </span></Link>
+                        <Link to="/admin/appointmentlist"><i className="fe fe-layout"></i><span>Appointments List </span></Link>
                     </li>
                     
-                    {/* <li> */}
-                        {/* <a href="patient-list.html"><i className="fe fe-user"></i> <span>Patients</span></a> */}
-                        {/* <Link to="/admin/patients"><i className="fe fe-user"></i><span>Patients</span></Link>
-                    </li> */}
-                    {/* <li> */}
-                        {/* <a href="reviews.html"><i className="fe fe-star-o"></i> <span>Reviews</span></a> */}
-                        {/* <Link to="/admin/reviews"><i className="fe fe-star-o"></i><span>Reviews</span></Link>
-                    </li> */}
+                   
                     <li>
                         {/* <a href="transactions-list.html"><i className="fe fe-activity"></i> <span>Transactions</span></a> */}
-                        <Link to="/admin/transactions"><i className="fe fe-activity"></i><span>Transactions</span></Link>
+                        <Link to="/admin/transactions_doctor"><i className="fe fe-activity"></i><span>Transactions</span></Link>
                     </li>
                     <li>
                         {/* <a href="settings.html"><i className="fe fe-vector"></i> <span>Settings</span></a> */}
-                        <Link to="/admin/settings"><i className="fe fe-vector"></i><span>Settings</span></Link>
+                        <Link to="/admin/settings_doctor"><i className="fe fe-vector"></i><span>Settings</span></Link>
 
                     </li>
                     {/* <li className="submenu">
@@ -62,7 +55,7 @@ const Drslidbar = () => {
                     </li> */}
                     <li>
                         {/* <a href="profile.html"><i className="fe fe-user-plus"></i> <span>Profile</span></a> */}
-                        <Link to="/admin/profile"><i className="fe fe-user-plus"></i> <span>Profile</span></Link>
+                        <Link to="/admin/profile_doctor"><i className="fe fe-user-plus"></i> <span>Profile</span></Link>
 
                     </li>
                     <li className="submenu">

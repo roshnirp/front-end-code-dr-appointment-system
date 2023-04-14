@@ -54,7 +54,7 @@ const RegisterHome = () => {
                   </div>
                   <div className="col-md-12 col-lg-6 login-right">
                     <div className="login-header">
-                      <h3>Patient Register <a href="doctor-register.html">Are you a Doctor?</a></h3>
+                      <h3> <a href="doctor-register.html">Are you a Doctor?</a></h3>
                     </div>
                     {/* Register Form */}
                     <Form layout='vertical' onFinish={onfinishHandler} className="register-form">
@@ -70,41 +70,12 @@ const RegisterHome = () => {
                       <Form.Item label="Password" name="password">
                         <Input type='password' required/>
                       </Form.Item> 
-                      <Link to="/login" className="text-right" >Already have an account?</Link>
+                      <Link to="/login/clinic" className="text-right" >Already have an account?</Link>
                     <button className='btn btn-primary' type='submit'>Register</button>
 
                    </Form>
 
-                    {/* <form onFinish={onfinishHandler}>
-                      <div className="form-group form-focus"  name='name'>
-                        <input type="text" className="form-control floating" />
-                        <label className="focus-label" name='name' >Name</label>
-                      </div>
-                      <div className="form-group form-focus" name="email">
-                        <input type="email" className="form-control floating"  />
-                        <label className="focus-label" name="email" >Email</label>
-                      </div>
-                      <div className="form-group form-focus" name='password'>
-                        <input type="password" className="form-control floating" />
-                        <label className="focus-label" name='password'>Create Password</label>
-                      </div>
-                      <div className="text-right">
-                        <a  href="/login">Already have an account?</a>
-                      </div>
-                      <button className="btn btn-primary btn-block btn-lg " type="submit">Signup</button>
-                      <div className="login-or p-3">
-                        <span className="or-line mt-4" />
-                        <span className="span-or mt-4">or</span>
-                      </div>
-                      <div className="row form-row social-login">
-                        <div className="col-6">
-                          <a href="#" className="btn btn-facebook btn-block"><i className="fab fa-facebook-f mr-1" /> Login</a>
-                        </div>
-                        <div className="col-6">
-                          <a href="#" className="btn btn-google btn-block"><i className="fab fa-google mr-1" /> Login</a>
-                        </div>
-                      </div>
-                    </form> */}
+               
                     {/* /Register Form */}
                   </div>
                 </div>

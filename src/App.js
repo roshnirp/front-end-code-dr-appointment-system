@@ -51,6 +51,13 @@ import ClinicDashboard from './Components/ClinicDashboard';
 import LoginClinic from './Components/LoginClinic';
 import AddPatient from './Components/Admin/AddPatient';
 import ListPatient from './Components/Admin/ListPatient';
+import RegisterDocter from './Components/RegisterDocter';
+import AppoitmentListforClinic from './Components/Admin/Adminsidebar/AppoitmentListforClinic';
+import AddAppointment from './Components/Admin/AddAppointment';
+import CalenderAppointment from './Components/Admin/Adminsidebar/CalenderAppointment';
+import EditeListItem from './Components/Admin/Adminsidebar/EditeListItem';
+import EditDoctorList from './Components/Admin/Adminsidebar/EditDoctorList';
+import EditPatientList from './Components/Admin/Adminsidebar/EditPatientList';
 
 // import PageWrapper from './Components/Admin/PageWrapper';
 function App() {
@@ -112,7 +119,16 @@ function App() {
         }></Route>
 
 
-        <Route exact path='/register' element={
+        <Route exact path='/register/doctor' element={
+          <React.Fragment>
+            <Header />
+            <RegisterDocter/>
+            <Footerrct />
+          </React.Fragment>
+        }>
+        </Route>
+        
+        <Route exact path='/register/Clinic' element={
           <React.Fragment>
             <Header />
             <RegisterHome/>
@@ -155,7 +171,7 @@ function App() {
           </React.Fragment>
         }></Route>
 
-<Route exact path='/admin/settings' element={
+<Route exact path='/admin/settings_doctor' element={
           <React.Fragment>
             <HeaderAdmin />
             <Drslidbar/>
@@ -164,7 +180,7 @@ function App() {
         }></Route>
 
 
-<Route exact path='/admin/transactions' element={
+<Route exact path='/admin/transactions_doctor' element={
           <React.Fragment>
             <HeaderAdmin />
             <Drslidbar/>
@@ -174,7 +190,7 @@ function App() {
 
         </Route>
 
-        <Route exact path='/admin/profile' element={
+        <Route exact path='/admin/profile_doctor' element={
           <React.Fragment>
             <HeaderAdmin />
             <Drslidbar/>
@@ -184,11 +200,11 @@ function App() {
           
         </Route>
         
-<Route exact path='/admin/appointment' element={
+<Route exact path='/admin/appointmentlist' element={
           <React.Fragment>
             <HeaderAdmin />
             <Drslidbar/>
-            <Appoitmentpage />
+            <Appoitmentpage/>
           </React.Fragment>
         }></Route>
 
@@ -198,7 +214,9 @@ function App() {
             <Drslidbar/>
             <ListPatient/>
           </React.Fragment>
-        }></Route>
+        }>
+
+        </Route>
 
         
 
@@ -227,7 +245,7 @@ function App() {
           <React.Fragment>
             <HeaderAdmin />
            <ClinicSlidbar/>
-          <AddPatient/>
+          <AddAppointment/>
           </React.Fragment>
         }>
           
@@ -235,17 +253,17 @@ function App() {
 
 
 
-        <Route exact path='/admin/list_Patient' element={
+        <Route exact path='/admin/Patient_list' element={
           <React.Fragment>
             <HeaderAdmin />
-           <ClinicSlidbar/>
-          <ListPatient/>
+            <ClinicSlidbar/>
+            <ListPatient/>
           </React.Fragment>
         }>
           
         </Route>
 
-        <Route exact path='/admin/transactions' element={
+        <Route exact path='/admin/transactions_ClinicList' element={
           <React.Fragment>
             <HeaderAdmin />
             <ClinicSlidbar/>
@@ -255,7 +273,7 @@ function App() {
 
         </Route>
         
-        <Route exact path='/admin/settings' element={
+        <Route exact path='/admin/settings_Clinic' element={
           <React.Fragment>
             <HeaderAdmin />
             <ClinicSlidbar/>
@@ -265,7 +283,7 @@ function App() {
           
         </Route>
 
-        <Route exact path='/admin/profile' element={
+        <Route exact path='/admin/profile_clinic' element={
           <React.Fragment>
             <HeaderAdmin />
             <ClinicSlidbar/>
@@ -292,7 +310,7 @@ function App() {
 
         </Route>
 
-        <Route exact path='/admin/clinic_list' element={
+        <Route exact path='/admin/clinic_list/:_id' element={
           <React.Fragment>
             <HeaderAdmin />
             <Salidbar />
@@ -301,6 +319,45 @@ function App() {
         }>
 
         </Route>
+       
+        <Route exact path='/admin/clinic_list/edit/:_id' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <Salidbar />
+          <EditeListItem/>
+          </React.Fragment>
+        }>
+
+        </Route>
+        <Route exact path='/admin/doctor_list/edit/:_id' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <Salidbar />
+          <EditDoctorList/>
+          </React.Fragment>
+        }>
+
+        </Route>
+             <Route exact path='/admin/doctor_list/edit/:_id' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <Salidbar />
+          <EditDoctorList/>
+          </React.Fragment>
+        }>
+
+        </Route>
+       
+             <Route exact path='/admin/patient_list/edit/:_id' element={
+          <React.Fragment>
+            <HeaderAdmin />
+            <ClinicSlidbar/>
+          <EditPatientList/>
+          </React.Fragment>
+        }>
+
+        </Route>
+        
         
 
         <Route exact path='/admin/add_doctors' element={
@@ -455,13 +512,7 @@ function App() {
           </React.Fragment>
         }></Route>
 
-        {/* <Route exact path='/admin/form-validation' element={
-          <React.Fragment>
-            <HeaderAdmin />
-            <Salidbar />
-        
-          </React.Fragment>
-        }></Route> */}
+       
 
 <Route exact path='/admin/form-validation' element={
           <React.Fragment>
@@ -489,7 +540,7 @@ function App() {
           </React.Fragment>
         }></Route>
 
-        {/* <Route exact path="/admin/calinderpage" element={<ClanderAppointment/>}></Route> */}
+        
 
         <Route exact path='/admin/calinderpage' element={
           <React.Fragment>
@@ -499,6 +550,13 @@ function App() {
           </React.Fragment>
         }></Route>
 
+<Route exact path='/admin/calenderappointment' element={
+          <React.Fragment>
+           <HeaderAdmin />
+           <Salidbar />
+          <CalenderAppointment/>
+          </React.Fragment>
+        }></Route>
 </Routes>
     </div>
   );

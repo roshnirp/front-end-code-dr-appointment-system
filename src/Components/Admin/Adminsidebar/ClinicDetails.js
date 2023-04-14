@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Form, Input, Row, message } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 const ClinicDetails = () => {
@@ -15,12 +15,13 @@ const ClinicDetails = () => {
                         const res = await axios.post("/api/v1/user/clinic", values);
                         if (res.data.success) {
                                 message.success("clinic successfully");
-                                navigate("/admin/clinic_list");
+                                navigate("/admin/clinic_list/:_id");
                         }
                         else {
                                 message.error(res.data.message);
                         }
-                } catch (error) {
+                }
+                catch (error) {
                         console.log(error);
                         message.error("something went wrong");
                 }
@@ -57,9 +58,10 @@ const ClinicDetails = () => {
                                                                                                         name="clinic_password"
                                                                                                         required
                                                                                                         rules={[{ required: true }]}>
-                                                                                                        <Input type='text' placeholder='clinic password' />
+                                                                                                        <Input type='password' placeholder='clinic password' />
                                                                                                 </Form.Item>
                                                                                         </Col>
+                                                                                     
                                                                                         <Col xs={24} md={24} lg={8}>
                                                                                                 <Form.Item
                                                                                                         label="Clinic Name"
@@ -109,24 +111,15 @@ const ClinicDetails = () => {
                                                                                                         <Input type='number' placeholder='mobile number' />
                                                                                                 </Form.Item>
                                                                                         </Col>
-                                                                                        {/* <Col xs={24} md={24} lg={8}>
-                                                <Form.Item 
-                                                label="Timings" 
-                                                name="timings" 
-                                                required 
-                                                rules={[{required:true}]}>
-                                                <TimePicker.RangePicker/>
-                                                </Form.Item>
-
-                                            </Col> */}                                           <Col xs={24} md={24} lg={8}>
+                                                                                         <Col xs={24} md={24} lg={8}>
                                                                                                 <Form.Item>
                                                                                                         <div className='d-flex justify-content-end'>
-                                                                                                        <button className='btn btn-primary'>Submit</button>
+                                                                                                                <button className='btn btn-primary'>Submit</button>
                                                                                                         </div>
                                                                                                 </Form.Item>
                                                                                         </Col>
 
-                                                                                        
+
 
 
 

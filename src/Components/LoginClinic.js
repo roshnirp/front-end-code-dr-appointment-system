@@ -55,7 +55,7 @@ const onfinishHandler = async(values) => {
                                             <Form.Item label="password" name="password">
                                                 <Input type='password' required />
                                             </Form.Item>
-                                            <Link to="/register" className="text-right" >Not a user Register here</Link>
+                                            <Link to="/register/Clinic" className="text-right" >Not a user Register here</Link>
                                             <button className='btn btn-primary' type='submit'>Login</button>
 
                                         </Form>

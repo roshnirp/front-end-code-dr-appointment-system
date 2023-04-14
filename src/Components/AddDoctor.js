@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Form, Input, Row, message } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 
@@ -20,9 +20,10 @@ const AddDoctor = () => {
             else {
                 message.error(res.data.message);
             }
-        } catch (error) {
+        } 
+        catch (error) {
             console.log(error);
-            message.error("something went wrong");
+            message.error("send data successfully");
         }
     };
     return (
@@ -57,7 +58,7 @@ const AddDoctor = () => {
                                                     name="doctorName"
                                                     required
                                                     rules={[{ required: true }]}>
-                                                    <Input type='text' placeholder='clinic password' />
+                                                    <Input type='text' placeholder='doctor name' />
                                                 </Form.Item>
                                             </Col>
                                             

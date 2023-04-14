@@ -34,7 +34,7 @@ const Salidbar = () => {
 								</li>
 								<li>
 									{/* <a href="doctor-list.html"><i className="fe fe-user-plus"></i> <span>Doctors</span></a> */}
-									<Link to="/admin/clinic_list"><i className="fe fe-layout"></i><span>Clinic List</span></Link>
+									<a href="/admin/clinic_list/:id"><i className="fe fe-layout"></i><span>Clinic List</span></a>
 								</li>
 						
 								<li>
@@ -55,9 +55,10 @@ const Salidbar = () => {
 									<Link to="/admin/calinderpage"><i className="fe fe-layout"></i><span>Book Appointments</span></Link>
 								</li>
 								<li>
-									{/* <a href="patient-list.html"><i className="fe fe-user"></i> <span>Patients</span></a> */}
-									<Link to="/admin/patients"><i className="fe fe-user"></i><span>Patients</span></Link>
+									{/* <a href="appointment-list.html"><i className="fe fe-layout"></i> <span>Appointments</span></a> */}
+									<Link to="/admin/calenderappointment"><i className="fe fe-layout"></i><span>Book Appointments</span></Link>
 								</li>
+								
 								<li>
 									{/* <a href="reviews.html"><i className="fe fe-star-o"></i> <span>Reviews</span></a> */}
 									<Link to="/admin/reviews"><i className="fe fe-star-o"></i><span>Reviews</span></Link>

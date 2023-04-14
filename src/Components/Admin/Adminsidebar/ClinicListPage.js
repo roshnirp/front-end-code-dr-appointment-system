@@ -1,22 +1,24 @@
-import { Col, Row } from 'antd';
 import axios from 'axios';
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-// import {Form, Input, message} from 'antd'
-// import { useNavigate } from 'react-router-dom'
-const API = "/api/v1/user/clinic";
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 const ClinicListPage = () => {
+	const navigate = useNavigate();
+	
 	const [myData, setMyData] = useState([]);
-	const [isError, setIsError]= useState("");
+	const [isError, setIsError] = useState("");
+	
 
 
-	const getApiData = async (url) => {
+	const getApiData = async () => {
 
 		try {
-			const res = await axios.get(url);
-			setMyData(res.data.data);
+			const res = await axios.get("/api/v1/user/clinic");
+			setMyData(res.data.data.reverse());
+			// console.log(res.data);
 
 		}
 		catch (error) {
@@ -26,16 +28,64 @@ const ClinicListPage = () => {
 	};
 
 	useEffect(() => {
-		getApiData(`${API}`);
+		getApiData();
 
 	}, []);
 
 
+	 const deleteOperation = async (_id) =>
+	
+	
+	{ 
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "Delete item into the list!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+			
+		  }).then((result) => {
+			if (result.isConfirmed) {
+				getApiData()
+			  Swal.fire(
+				'Deleted!',
+				'Item has been deleted.',
+				'success'
+			  )
+			}
+			
 
+		  }
+		  )
+		
+	
+		
+
+			
+			  try {
+				const res = await axios.delete(`/api/v1/user/clinic/`+_id);
+				// setMyData(res.data.data);
+				
+				navigate("/admin/clinic_list/:id");
+				
+				console.log(res);
+		
+			}
+			
+		catch (error) {
+			setIsError(error.message);
+		}
+		
+	
+	
+		
+	}
 
 	return (
 		<div>
-				{isError !== "" && <h2>{isError}</h2>}
+			{isError !== "" && <h2>{isError}</h2>}
 
 			{/* <!-- Page Wrapper --> */}
 			<div class="page-wrapper">
@@ -57,94 +107,55 @@ const ClinicListPage = () => {
 							<div class="card">
 								<div class="card-body">
 									<div class="table-responsive">
-									
+
 										<table class="datatable table table-hover table-center mb-0">
-											{/* <thead>
+											<thead>
 												<tr>
+													{/* <th>id</th> */}
 													<th>Clinic Name</th>
 													<th>Email</th>
 													<th>Website</th>
 													<th>Mobile Number</th>
 													<th>Address</th>
+													<th class="text-right">Actions</th>
 												</tr>
-											</thead> */}
+											</thead>
+											{
+												myData.map((post) => {
+													const { _id, clinicName, mobileNo, email, website, address } = post;
+													return (
+														<tr key={_id}>
+															{/* <td>{_id}</td> */}
+															<td>{clinicName}</td>
 
-											<tbody>
-												
-												<thead>
-												<tr>
-													<th>Clinic Name</th>
-													<th>Email</th>
-													<th>Website</th>
-													<th>Mobile Number</th>
-													<th>Address</th>
-												</tr>
-												</thead>
-												<tr>
-													{
-														myData.map((post) => {
-															const { id, clinicName, mobileNo, email, website, address } = post;
-															return (
-																<div key={id}>
-																	<td>{clinicName}</td>
-																
-																	<td>{email}</td>
-																	<td>{website}</td>
-																	<td>{mobileNo}</td>
-																	<td>{address}</td>
-																</div>);
-														})
-													}
-
-
-												</tr>
+															<td>{email}</td>
+															<td>{website}</td>
+															<td>{mobileNo}</td>
+															<td>{address}</td>
+															<td class="text-right">
+																<div class="actions">
+																	<Link to="/admin/clinic_list/:id" class="btn btn-sm bg-danger-light" >
+																		<i class="fe fe-trash"></i><span onClick={()=>deleteOperation(_id)}> Delete
+																		</span>
+																	</Link>	
+																</div>
+															</td>
+															<td class="text-right">
+																<div class="actions">
+																	<a href={`/admin/clinic_list/edit/${_id}`} 
+																	 class="btn btn-sm bg-primary-light"  >
+																		<i class="fa fa-pencil"></i> Edit
+																	</a>
+																</div>
+															</td>
 
 
-												{/* <tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="/admin/profile" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/adminassets/img/doctors/doctor-thumb-01.jpg" alt="User Image" /></a>
-															<a href="/admin/profile">Clinic</a>
-														</h2>
-													</td>
-													<td>Clinic@gmail.com</td>
-
-													<td>www.clinic.in</td>
-
-													<td>*********896</td>
-													<td>clinic Address details</td> */}
-
-													{/* <td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_1" class="check" checked/>
-															<label for="status_1" class="checktoggle">checkbox</label>
-														</div>
-													</td> */}
-												{/* </tr>
-												<tr>
-													<td>
-														<h2 class="table-avatar">
-															<a href="/admin/profile" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/adminassets/img/doctors/doctor-thumb-02.jpg" alt="User Image" /></a>
-															<a href="/admin/profile">Clinicname2 </a>
-														</h2>
-													</td>
-													<td>Clinicname2@gmail.com</td>
-
-													<td>www.clinicname.com</td>
-
-													<td>*********789</td>
-													<td>clinic address details</td> */}
-
-													{/* <td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_1" class="check" checked/>
-															<label for="status_1" class="checktoggle">checkbox</label>
-														</div>
-													</td> */}
-												{/* </tr> */}
+														</tr>);
 
 
-											</tbody>
+												})
+											}
+
 
 										</table>
 									</div>

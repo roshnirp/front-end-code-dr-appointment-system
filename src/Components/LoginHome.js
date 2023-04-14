@@ -78,7 +78,7 @@ const LoginHome = () => {
                                     <div className="col-md-12 col-lg-6 login-right">
                                         
                                         <Form layout='vertical' onFinish={onfinishHandler}>
-                                            <h3>Login Form</h3>
+                                            <h3>Doctor Login Form</h3>
                                            
 
                                             <Form.Item label="Email" name="email">
@@ -88,37 +88,11 @@ const LoginHome = () => {
                                             <Form.Item label="password" name="password">
                                                 <Input type='password' required />
                                             </Form.Item>
-                                            <Link to="/register" className="text-right" >Not a user Register here</Link>
+                                            <Link to="/register/doctor" className="text-right" >Not a user Register here</Link>
                                             <button className='btn btn-primary' type='submit'>Login</button>
 
                                         </Form>
-                                        {/* <form onFinish={onfinishHandler} className="register-form">
-                                            <div className="form-group form-focus">
-                                                <input type="email" className="form-control floating" />
-                                                <label className="focus-label">Email</label>
-                                            </div>
-                                            <div className="form-group form-focus">
-                                                <input type="password" className="form-control floating" />
-                                                <label className="focus-label">Password</label>
-                                            </div>
-                                            <div className="text-right">
-                                                <a className="forgot-link" href="forgot-password.html">Forgot Password ?</a>
-                                            </div>
-                                            <button className="btn btn-primary btn-block btn-lg login-btn" type="submit">Login</button>
-                                            <div className="login-or p-3">
-                                                <span className="or-line mt-4" />
-                                                <span className="span-or mt-4">or</span>
-                                            </div>
-                                            <div className="row form-row social-login">
-                                                <div className="col-6">
-                                                    <a href="#" className="btn btn-facebook btn-block"><i className="fab fa-facebook-f mr-1" /> Login</a>
-                                                </div>
-                                                <div className="col-6">
-                                                    <a href="#" className="btn btn-google btn-block"><i className="fab fa-google mr-1" /> Login</a>
-                                                </div>
-                                            </div>
-                                            <div className="text-center dont-have">Don’t have an account? <Link to="/register">Register</Link></div>
-                                        </form> */}
+                                     
                                     </div>
                                 </div>
                             </div>
